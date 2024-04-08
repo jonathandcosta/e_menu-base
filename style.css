@@ -177,3 +177,52 @@ b {
   right: 20px;
   bottom: 10px;
 }
+
+/* SERVIÇOS */
+.background-servicos {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 500px;
+  background-image: url(./assests/img/bg-icons-2.png);
+}
+
+.servicos {
+  padding-top: 100px;
+  padding-bottom: 150px;
+}
+
+.hint-title {
+  color: var(--color-primary);
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+.title {
+  color: var(--color-black);
+  font-size: 40px;
+  margin-top: 5px;
+  margin-bottom: 30px;
+}
+
+.card-icon {
+  height: 150px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-text {
+  color: var(--color-text-out);
+  font-size: 15px;
+  padding: 0px 30px;
+}
+
+.card-text p {
+  font-size: 22px;
+  color: var(--color-black);
+  margin-bottom: 10px;
+}
