@@ -7,12 +7,60 @@
 
   <link rel="stylesheet" href="./assests/css/bootstrap.min.css">
   <link rel="stylesheet" href="./assests/css/fontawesome.css">
+  <link rel="stylesheet" href="./style.css">
 
   <title>Restaurante - Menu</title>
 </head>
 
 <body>
 
+  <section id="header" class="header">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg pl-0 pr-0">
+        <a href="#" class="navbar-brand">
+          <img src="./assests/img/logo.png" width="160px" alt="logo">
+        </a>
+
+        <!-- MENU  + MENU RESPONSIVO -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdonw">
+          <span class="navbar-toggle-icon">
+            <i class="fas fa-bars"></i>
+          </span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdonw">
+          <ul class="navbar-nav ml-auto mr-auto">
+            <li class="nav-item">
+              <a href="#reservas" class="nav-link"><b>Reservas</b></a>
+            </li>
+            <li class="nav-item">
+              <a href="#serviços" class="nav-link"><b>Serviços</b></a>
+            </li>
+            <li class="nav-item">
+              <a href="#cardapio" class="nav-link"><b>Cardápio</b></a>
+            </li>
+            <li class="nav-item">
+              <a href="#depoimentos" class="nav-link"><b>Depoimentos</b></a>
+            </li>
+          </ul>
+          <!-- BOTÃO DO CARRINHO -->
+          <a href="#" class="btn btn-white btn-icon">Meu carrinho
+            <span class="icon">
+              <i class="fa fa-shopping-bag"></i>
+            </span>
+          </a>
+        </div>
+      </nav>
+    </div>
+
+  </section>
+
+  <section id="banner" class="banner"></section>
+  <section id="servicos" class="servicos"></section>
+  <section id="cardapio" class="cardapio"></section>
+  <section id="depoimento" class="depoimento"></section>
+  <section id="reserva" class="reserva"></section>
+  <footer id="footer" class="footer"></footer>
 
   <script type="text/javascript" src="./assests/js/jquery-1.12.4.min.js"></script>
   <script type="text/javascript" src="./assests/js/modernizr-3.5.0.min.js"></script>
