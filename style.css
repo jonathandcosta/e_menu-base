@@ -28,6 +28,10 @@ html, body {
   color: var(--color-text);
 }
 
+.logo-header, .logo-footer {
+  width: 150px;
+}
+
 /* CLASSE FUNCIONAL - ESCONDENDO ELEMENTOS */
 .hidden {
   display: none!important;
@@ -451,4 +455,26 @@ b {
 
 .reserva .img-banner img {
   width: 100%;
+}
+
+/* FOOTER */
+
+.footer {
+  background-color: var(--color-secondary);
+}
+
+.container-logo-footer, .container-texto-footer, .container-redes-footer {
+  display: flex;
+  align-items: center;
+}
+.container-logo-footer {
+  justify-content: start;
+}
+
+.container-texto-footer {
+  justify-content: center;
+}
+
+.container-redes-footer {
+  justify-content: end;
 }
