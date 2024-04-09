@@ -336,6 +336,7 @@ b {
   margin-top: 20px;
 }
 
+/* DEPOIMENTO */
 .depoimentos {
   padding-top: 100px;
   padding-bottom: 150px;
@@ -424,4 +425,30 @@ b {
   display: flex;
   justify-content: center;
   align-items: end;
+}
+
+/* RESERVA */
+
+.reserva {
+  padding-top: 100px;
+  padding-bottom: 150px;
+}
+
+.card-secondary {
+  background-color: var(--color-secondary);
+  border-radius: 70px;
+  padding: 90px;
+}
+.card-reserva {
+  height: 320px;
+  width: 320px;
+  border-radius: 120px;
+  background-color: var(--color-white);
+  position: absolute;
+  right: 0;
+  top: -25px;
+}
+
+.reserva .img-banner img {
+  width: 100%;
 }
