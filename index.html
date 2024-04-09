@@ -351,6 +351,76 @@
   </footer>
 
 
+  <!-- MODAL PARA O CARRINHO -->
+  <div class="modal-full" id="modalCarrinho">
+    <div class="m-header">
+      <div class="container">
+        <a href="" class="btn btn-white btn-sm float-right">Fechar</a>
+        <div class="etapas">
+          <div class="etapa etapa1 active">1</div>
+          <div class="etapa etapa2">2</div>
+          <div class="etapa etapa3">3</div>
+        </div>
+        <p class="title-carrinho mt-4">
+          <b id="iblTituloEtapa">Seu carrinho:</b>
+        </p>
+      </div>
+    </div>
+
+    <div class="m-body">
+      <div class="container">
+        <div class="row mr-0 ml-0 hidden id=" itensCarrinho">
+          <div class="col-12 item-carrinho">
+            <div class="img-produto">
+              <img src="./assests/img/cardapio/burguers/burger-au-poivre-kit-4-pack.3ca0e39b02db753304cd185638dad518.jpg" alt="">
+            </div>
+            <div class="dados-produto">
+              <p class="title-produto"><b>Nome do produto</b></p>
+              <p class="price-produto"><b>R$179,90</b></p>
+            </div>
+            <div class="add-carrinho">
+              <span class="btn-menos"><i class="fas fa-minus"></i></span>
+              <span class="add-numero-itens">0</span>
+              <span class="btn-mais"><i class="fas fa-plus"></i></span>
+              <span class="btn btn-remove"><i class="fa fa-times"></i></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mr-0 ml-0" id="localEntrega"></div>
+
+
+        <div class="row mr-0 ml-0" id="resumoCarrinho hidden"></div>
+
+      </div>
+
+    </div>
+    <div class="m-footer">
+      <div class="container">
+        <div class="container-total text-right mb-4">
+          <p class="mb-0">
+            <span>Subtotal:</span>
+            <span id="iblSubTotal">R$95,00</span>
+          </p>
+          <p class="mb-0 texto-entrega">
+            <span><i class="fas fa-motorcycle"></i>Entrega:</span>
+            <span id="iblValorEntrega"> +R$5,00</span>
+          </p>
+          <p class="mb-0 texto-total">
+            <span><b>Total:</b>:</span>
+            <span class="valor-total" id="iblValorTotal"><b>R$100,00</b></span>
+          </p>
+        </div>
+        <a href="#" class="btn btn-yellow float-right" id="iblEtapaPedido">Continuar</a>
+        <a href="#" class="btn btn-yellow float-right hidden id=" iblEtapaEndereco">Revisar pedido</a>
+        <a href="#" class="btn btn-yellow float-right hidden" id="iblEtapaResumo">Enviar pedido</a>
+        <a href="#" class="btn btn-white float-right mr-3 hidden id=" btnVoltar">Voltar</a>
+      </div>
+
+    </div>
+  </div>
+
+
 
   <!-- SCRIPTS -->
   <script type="text/javascript" src="./assests/js/jquery-1.12.4.min.js"></script>
