@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'PoppinsMedium';
-  src: url(../fonts/Poppins-Medium.otf);
+  src: url(./assests/fonts/Poppins-Medium.otf);
 }
 
 @font-face {
   font-family: 'PoppinsRegular';
-  src: url(../fonts//Poppins-Regular.otf);
+  src: url(./assests/fonts/Poppins-Regular.otf);
 }
 
 :root {
@@ -23,11 +23,15 @@
 }
 
 html, body {
-  font-family: 'PoppinsRegular', 'Rubik', sans-serif;
+  font-family: 'PoppinsMedium', 'Rubik', sans-serif;
   background-color: var(--color-background);
   color: var(--color-text);
 }
 
+/* CLASSE FUNCIONAL - ESCONDENDO ELEMENTOS */
+.hidden {
+  display: none!important;
+}
 
 /* HEADER */
 b {
@@ -330,4 +334,94 @@ b {
 .card-item:hover .price-produto {
   color: var(--color-black-all)!important;
   margin-top: 20px;
+}
+
+.depoimentos {
+  padding-top: 100px;
+  padding-bottom: 150px;
+}
+
+.background-depoimentos {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 500px;
+  background-image: url(./assests/img/bg-icons-1.png);
+}
+
+.card-depoimentos {
+  height: 390px;
+  width: 390px;
+  border-radius: 120px;
+  background-color: var(--color-secondary);
+  position: absolute;
+  left: 0;
+}
+
+.container-dados-depoimento {
+  display: flex;
+}
+
+.depoimento {
+  margin-top: 70px;
+}
+
+.imagem-depoimento {
+  width: 65px;
+  height: 65px;
+  background-color: var(--color-white);
+  border-radius: 50px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 15px;
+}
+
+#depoimento-1 .imagem-depoimento {
+  background-image: url(./assests/img/diego.jpg);
+  background-size: cover;
+}
+#depoimento-2 .imagem-depoimento {
+  background-image: url(./assests/img/ana.jpg);
+  background-size: cover;
+}
+#depoimento-3 .imagem-depoimento {
+  background-image: url(./assests/img/joao.jpg);
+  background-size: cover;
+}
+
+.nome-depoimento {
+  color: var(--color-black);
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.nota-depoimento {
+  color: var(--color-primary);
+}
+
+.nota-depoimento span {
+  color: var(--color-black);
+}
+
+.texto-depoimento {
+  display: flex;
+  font-size: 16px;
+  color: var(--color-black);
+}
+
+.texto-depoimento i {
+  font-size: 35px;
+  color: var(--color-primary);
+}
+
+.texto-depoimento i:first-child {
+  padding-left: 10px;
+  padding-right: 35px;
+}
+
+.texto-depoimento i:last-child {
+  padding-left: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
 }
