@@ -21,9 +21,10 @@ cardapio.metodos = {
     // O "i" REPRESENTA O EACH "para cada", O "e" SIGNIFICA "elemento" NO ARQUIVO DADOS
     $.each(filtro, (i, e) => {
       let template = cardapio.templates.item // ESSA VARIAVEL CHAMA A FUNÇÃO TEMPLATES, PERMITE ADICIONAR NO HTML SUBSTITUINDO PELA PROPRIEDADE COM \${img} NA FUNÇÃO TEMPLATE
+        // A FUNÇÃO .replace -> substiui X por Y EXEMPLO: .replace(/\${nome}/g, e.name) ESTA SUBSTITUINDO nome POR name
         .replace(/\${img}/g, e.img) // SUBSTITUINDO TODAS AS IMAGENS DE FORMA GLOBAL "todas"
         .replace(/\${nome}/g, e.name) // SUBSTITUINDO TODAS OS NOMES DE FORMA GLOBAL "todas"
-        .replace(/\${preco}/g, e.price); // SUBSTITUINDO TODAS OS PREÇOSS DE FORMA GLOBAL "todas"
+        .replace(/\${preco}/g, e.price.toFixed(2).replace('.', ',')); // SUBSTITUINDO TODAS OS PREÇOSS DE FORMA GLOBAL "todas"
 
       $('#itensCardapio').append(template); // ESSA LINHA É A AÇÃO QUE PERMITE ADICIONAR NO HTML IDENTIFICADA PELO TAG ID
     });
