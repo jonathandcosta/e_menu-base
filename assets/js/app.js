@@ -14,14 +14,17 @@ cardapio.eventos = {
 
 cardapio.metodos = {
   // OBTEM A LISTA COMPLETA DE ITENS DO CARDAPIO DO ARQUIVO DADOS
-  obterItensCardapio: (categoria = 'burgers') => {
+  obterItensCardapio: (categoria = 'burgers', vermais = false) => {
     // PASSANDO O PARAMETRO categoria, mas setada 'burgers' como a primeira pois é a primeira da lista
     var filtro = MENU[categoria]; // CHAMA O PARAMETRO 'categoria'
     console.log(filtro);
 
-    $('#itensCardapio').html(''); // LIMPA A CADA NOVA CATEGORIA SELECIONADA SEM ACUMULAR
+    if (!vermais) {
+      $('#itensCardapio').html(''); // LIMPA A CADA NOVA CATEGORIA SELECIONADA SEM ACUMULAR
+      $('#btnVerMais').removeClass('hidden'); // SE CLIQUEI EM UMA OUTRA CATEGORIA REMOVO A CLASSA 'hidden'
+    }
 
-    // O "i" REPRESENTA O EACH "para cada", O "e" SIGNIFICA "elemento" NO ARQUIVO DADOS
+    // O "i" REPRESENTA O "index" (EACH "para cada"), O "e" SIGNIFICA "elemento" NO ARQUIVO DADOS
     $.each(filtro, (i, e) => {
       let template = cardapio.templates.item // ESSA VARIAVEL CHAMA A FUNÇÃO TEMPLATES, PERMITE ADICIONAR NO HTML SUBSTITUINDO PELA PROPRIEDADE COM \${img} NA FUNÇÃO TEMPLATE
         // A FUNÇÃO .replace -> substiui X por Y EXEMPLO: .replace(/\${nome}/g, e.name) ESTA SUBSTITUINDO nome POR name
@@ -29,7 +32,15 @@ cardapio.metodos = {
         .replace(/\${nome}/g, e.name) // SUBSTITUINDO TODAS OS NOMES DE FORMA GLOBAL "todas"
         .replace(/\${preco}/g, e.price.toFixed(2).replace('.', ',')); // SUBSTITUINDO TODAS OS PREÇOSS DE FORMA GLOBAL "todas"
 
-      $('#itensCardapio').append(template); // ESSA LINHA É A AÇÃO QUE PERMITE ADICIONAR NO HTML IDENTIFICADA PELO TAG ID
+      // BOTÃO VER MAIS (MOSTRAR MAIS QUE 8 ITENS)
+      if (vermais && i >= 8 && i < 12) {
+        $('#itensCardapio').append(template); // ESSA LINHA É A AÇÃO QUE PERMITE ADICIONAR NO HTML IDENTIFICADA PELO TAG ID
+      }
+
+      // BOTÃO VER MAIS PAGINAÇÃO INICIAL - MOSTRA APENAS 8
+      if (!vermais && i < 8) {
+        $('#itensCardapio').append(template); // ESSA LINHA É A AÇÃO QUE PERMITE ADICIONAR NO HTML IDENTIFICADA PELO TAG ID
+      }
     });
 
     // REMOVE O ATIVO SETADO inclusive o PADRÃO INICIAL 'burgers'
@@ -37,6 +48,14 @@ cardapio.metodos = {
 
     // SETA A CATEGORIA SELECIONADA - ATIVANDO
     $('#menu-' + categoria).addClass('active');
+  },
+
+  // CLIQUE NO BOTÃO VER MAIS
+  verMais: () => {
+    var ativo = $('.container-menu a.active').attr('id').split('menu-')[1]; // IDENTIFICA CATEGORIA ATIVA PELO ID QUEBRANDO O ID ALTERADO
+    cardapio.metodos.obterItensCardapio(ativo, true); //
+
+    $('#btnVerMais').addClass('hidden'); // APÓS ACIONAR O BOTÃO "vermais" ELE FICA OCULTO USANDO A CLASS HIDDEN NO CSS
   },
 };
 
