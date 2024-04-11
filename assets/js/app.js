@@ -14,9 +14,12 @@ cardapio.eventos = {
 
 cardapio.metodos = {
   // OBTEM A LISTA COMPLETA DE ITENS DO CARDAPIO DO ARQUIVO DADOS
-  obterItensCardapio: () => {
-    var filtro = MENU['burgers'];
+  obterItensCardapio: (categoria = 'burgers') => {
+    // PASSANDO O PARAMETRO categoria, mas setada 'burgers' como a primeira pois é a primeira da lista
+    var filtro = MENU[categoria]; // CHAMA O PARAMETRO 'categoria'
     console.log(filtro);
+
+    $('#itensCardapio').html(''); // LIMPA A CADA NOVA CATEGORIA SELECIONADA SEM ACUMULAR
 
     // O "i" REPRESENTA O EACH "para cada", O "e" SIGNIFICA "elemento" NO ARQUIVO DADOS
     $.each(filtro, (i, e) => {
@@ -28,6 +31,12 @@ cardapio.metodos = {
 
       $('#itensCardapio').append(template); // ESSA LINHA É A AÇÃO QUE PERMITE ADICIONAR NO HTML IDENTIFICADA PELO TAG ID
     });
+
+    // REMOVE O ATIVO SETADO inclusive o PADRÃO INICIAL 'burgers'
+    $('.container-menu a').removeClass('active');
+
+    // SETA A CATEGORIA SELECIONADA - ATIVANDO
+    $('#menu-' + categoria).addClass('active');
   },
 };
 
