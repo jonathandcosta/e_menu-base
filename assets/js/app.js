@@ -113,8 +113,29 @@ cardapio.metodos = {
         }
         // LIMPA O NUMERO APÓS ADICIONAR O ITEM AO CARRINHO
         $('#qntd-' + id).text(0);
+
+        cardapio.metodos.atualizaBadgeTotal();
       }
     }
+  },
+
+  // ATUALIZA O BADGE DE TOTAL DE ITEM NO CARRINHO "meu carrinho"
+  atualizaBadgeTotal: () => {
+    var total = 0;
+
+    $.each(meu_Carrinho, (i, e) => {
+      total += e.qntd;
+    });
+
+    if (total > 0) {
+      $('.botao-carrinho').removeClass('hidden');
+      $('.container-total-carrinho').removeClass('hidden');
+    } else {
+      $('.botao-carrinho').addClass('hidden');
+      $('.container-total-carrinho').addClass('hidden');
+    }
+
+    $('.badge-total-carrinho').html(total);
   },
 };
 
