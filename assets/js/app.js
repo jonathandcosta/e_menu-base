@@ -30,7 +30,8 @@ cardapio.metodos = {
         // A FUNÇÃO .replace -> substiui X por Y EXEMPLO: .replace(/\${nome}/g, e.name) ESTA SUBSTITUINDO nome POR name
         .replace(/\${img}/g, e.img) // SUBSTITUINDO TODAS AS IMAGENS DE FORMA GLOBAL "todas"
         .replace(/\${nome}/g, e.name) // SUBSTITUINDO TODAS OS NOMES DE FORMA GLOBAL "todas"
-        .replace(/\${preco}/g, e.price.toFixed(2).replace('.', ',')); // SUBSTITUINDO TODAS OS PREÇOSS DE FORMA GLOBAL "todas"
+        .replace(/\${preco}/g, e.price.toFixed(2).replace('.', ',')) // SUBSTITUINDO TODAS OS PREÇOSS DE FORMA GLOBAL "todas"
+        .replace(/\${id}/g, e.id); // IDENTIFICANDO O PRODUTO PELO "id"
 
       // BOTÃO VER MAIS (MOSTRAR MAIS QUE 8 ITENS)
       if (vermais && i >= 8 && i < 12) {
@@ -57,22 +58,37 @@ cardapio.metodos = {
 
     $('#btnVerMais').addClass('hidden'); // APÓS ACIONAR O BOTÃO "vermais" ELE FICA OCULTO USANDO A CLASS HIDDEN NO CSS
   },
+
+  // DIMINUIR QUANTIDADE CARD DO PRODUTO
+  diminuirQuantidade: (id) => {
+    let qntdAtual = parseInt($('#qntd-' + id).text());
+
+    if (qntdAtual > 0) {
+      $('#qntd-' + id).text(qntdAtual - 1);
+    }
+  },
+
+  // AUMENTAR QUANTIDADE CARD DO PRODUTO
+  aumentarQuantidade: (id) => {
+    let qntdAtual = parseInt($('#qntd-' + id).text());
+    $('#qntd-' + id).text(qntdAtual + 1);
+  },
 };
 
 // O QUE SERÁ ESCRITO NO HTML
 cardapio.templates = {
   item: `
       <div class="col-3 mb-5">
-        <div class="card card-item">
+        <div class="card card-item" id="\${id}">
           <div class="img-produto">
             <img src="\${img}" alt="">
           </div>
           <p class="title-produto text-center mt-4"><b>\${nome}</b></p>
           <p class="price-produto text-center"><b>R$\${preco}</b></p>
           <div class="add-carrinho">
-              <span class="btn-menos"><i class="fas fa-minus"></i></span>
-              <span class="add-numero-itens">0</span>
-              <span class="btn-mais"><i class="fas fa-plus"></i></span>
+              <span class="btn-menos" onClick="cardapio.metodos.diminuirQuantidade('\${id}')" ><i class="fas fa-minus"></i></span>
+              <span class="add-numero-itens" id="qntd-\${id}">0</span>
+              <span class="btn-mais" onClick="cardapio.metodos.aumentarQuantidade('\${id}')" ><i class="fas fa-plus"></i></span>
               <span class="btn btn-add"><i class="fa fa-shopping-bag"></i></span>
           </div>
         </div>

@@ -382,15 +382,15 @@ b {
 }
 
 #depoimento-1 .imagem-depoimento {
-  background-image: url(./assests/img/diego.jpg);
+  background-image: url(./assets/img/diego.jpg);
   background-size: cover;
 }
 #depoimento-2 .imagem-depoimento {
-  background-image: url(./assests/img/ana.jpg);
+  background-image: url(./assets/img/ana.jpg);
   background-size: cover;
 }
 #depoimento-3 .imagem-depoimento {
-  background-image: url(./assests/img/joao.jpg);
+  background-image: url(./assets/img/joao.jpg);
   background-size: cover;
 }
 
