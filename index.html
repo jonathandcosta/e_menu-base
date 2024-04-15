@@ -469,8 +469,7 @@
           </div>
         </div>
 
-
-        <div class="row mr-0 ml-0" id="resumoCarrinho">
+        <div class="row mr-0 ml-0 hidden" id="resumoCarrinho">
           <div class="col-12">
             <p class="title-carrinho mt-4">
               <b>Itens do pedido:</b>
@@ -539,10 +538,10 @@
             <span class="valor-total" id="iblValorTotal"><b>R$100,00</b></span>
           </p>
         </div>
-        <a href="#" class="btn btn-yellow float-right" id="iblEtapaPedido">Continuar</a>
-        <a href="#" class="btn btn-yellow float-right hidden id=" iblEtapaEndereco">Revisar pedido</a>
-        <a href="#" class="btn btn-yellow float-right hidden" id="iblEtapaResumo">Enviar pedido</a>
-        <a href="#" class="btn btn-white float-right mr-3 hidden id=" btnVoltar">Voltar</a>
+        <a class="btn btn-yellow float-right" id="btnEtapaPedido" onclick="cardapio.metodos.carregaEtapas(2)">Continuar</a>
+        <a class="btn btn-yellow float-right hidden" id="btnEtapaEndereco" onclick="cardapio.metodos.carregaEtapas(3)">Revisar pedido</a>
+        <a class="btn btn-yellow float-right hidden" id="btnEtapaResumo">Enviar pedido</a>
+        <a class="btn btn-white float-right mr-3 hidden" id="btnVoltar" onclick="cardapio.metodos.voltarEtapa()">Voltar</a>
       </div>
 
     </div>
