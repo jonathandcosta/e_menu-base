@@ -20,7 +20,7 @@
   <div class="container-mensagens" id="container-mensagens"></div>
 
   <!-- BOTÃO FLUTUANTE DO CARRINHO - APARECE QUANDO ADIOCIONA INTENS AO CARINHO -->
-  <a class="botao-carrinho hidden">
+  <a class="botao-carrinho hidden" onclick="cardapio.metodos.abrirCarrinho(true)">
     <div class="badge-total-carrinho">0</div>
     <i class=" fa fa-shopping-bag"></i>
   </a>
@@ -55,7 +55,8 @@
             </li>
           </ul>
           <!-- BOTÃO DO CARRINHO -->
-          <a class="btn btn-white btn-icon">Meu carrinho
+          <a class="btn btn-white btn-icon" onclick="cardapio.metodos.abrirCarrinho(true)">
+            Meu carrinho
             <span class="icon">
               <div class="container-total-carrinho badge-total-carrinho hidden">0</div>
               <i class="fa fa-shopping-bag"></i>
@@ -351,10 +352,10 @@
 
 
   <!-- MODAL PARA O CARRINHO -->
-  <div class="modal-full hidden id=" modalCarrinho">
+  <div class="modal-full hidden" id="modalCarrinho">
     <div class="m-header">
       <div class="container">
-        <a href="" class="btn btn-white btn-sm float-right">Fechar</a>
+        <a href="" class="btn btn-white btn-sm float-right" onclick="cardapio.metodos.abrirCarrinho(false)">Fechar</a>
         <div class="etapas">
           <div class="etapa etapa1 active">1</div>
           <div class="etapa etapa2">2</div>
@@ -469,7 +470,7 @@
         </div>
 
 
-        <div class="row mr-0 ml-0 hidden" id="resumoCarrinho">
+        <div class="row mr-0 ml-0" id="resumoCarrinho">
           <div class="col-12">
             <p class="title-carrinho mt-4">
               <b>Itens do pedido:</b>

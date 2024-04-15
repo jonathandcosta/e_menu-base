@@ -141,6 +141,15 @@ cardapio.metodos = {
     $('.badge-total-carrinho').html(total);
   },
 
+  // ABRIR A MODAL DE CARRINHO
+  abrirCarrinho: (abrir) => {
+    if (abrir) {
+      $('#modalCarrinho').removeClass('hidden');
+    } else {
+      $('#modalCarrinho').addClass('hidden');
+    }
+  },
+
   // MENSAGEM APRESENTADA NO FRONT APÓS ADICIONAR O ITEM AO CARRINHO
   mensagem: (texto, cor = 'red', tempo = 3500) => {
     // APAGANDO A MENSAGEM DE SUCESSO APÓS 3,5 SEG
