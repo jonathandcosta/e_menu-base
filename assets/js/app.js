@@ -111,8 +111,10 @@ cardapio.metodos = {
           item[0].qntd = qntdAtual;
           meu_Carrinho.push(item[0]);
         }
-        // LIMPA O NUMERO APÓS ADICIONAR O ITEM AO CARRINHO
-        $('#qntd-' + id).text(0);
+
+        // MENSAGEM DE SUCESSO!
+        cardapio.metodos.mensagem('Item adicionado ao carrinho', 'green');
+        $('#qntd-' + id).text(0); // LIMPA O NUMERO APÓS ADICIONAR O ITEM AO CARRINHO
 
         cardapio.metodos.atualizaBadgeTotal();
       }
@@ -127,6 +129,7 @@ cardapio.metodos = {
       total += e.qntd;
     });
 
+    // MUDA AS CLASSES MANTENDO OU NÃO AS TAGS NO "html" OCULTAS
     if (total > 0) {
       $('.botao-carrinho').removeClass('hidden');
       $('.container-total-carrinho').removeClass('hidden');
@@ -136,6 +139,13 @@ cardapio.metodos = {
     }
 
     $('.badge-total-carrinho').html(total);
+  },
+
+  // MENSAGEM APRESENTADA NO FRONT APÓS ADICIONAR O ITEM AO CARRINHO
+  mensagem: (texto, cor = 'red', tempo = 3500) => {
+    let msg = `<div class="toast ${cor}">${texto}</div>`;
+
+    $('#container-mensagens').append(msg);
   },
 };
 

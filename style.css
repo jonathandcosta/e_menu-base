@@ -114,6 +114,30 @@ b {
   z-index: 1;
 }
 
+/* MENSAGEM DE SUCESSO APÓS ADICIONAR ITEM AO CARRINHO */
+.container-mensagens {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 9999;
+}
+
+.toast {
+  color: var(--color-white);
+  padding: 10px 25px;
+  font-size: 18px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.toast.red {
+  background-color: var(--color-red);
+}
+
+.toast.green {
+  background-color: var(--color-grenn);
+}
+
 
 /* BANNER */
 .banner {
