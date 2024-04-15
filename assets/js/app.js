@@ -143,9 +143,16 @@ cardapio.metodos = {
 
   // MENSAGEM APRESENTADA NO FRONT APÓS ADICIONAR O ITEM AO CARRINHO
   mensagem: (texto, cor = 'red', tempo = 3500) => {
-    let msg = `<div class="toast ${cor}">${texto}</div>`;
+    // APAGANDO A MENSAGEM DE SUCESSO APÓS 3,5 SEG
+    let id = Math.floor(Date.now() * Math.random()).toString();
+
+    let msg = `<div id="msg-${id}" class="toast ${cor}">${texto}</div>`;
 
     $('#container-mensagens').append(msg);
+
+    setTimeout(() => {
+      $('#msg-' + id).remove();
+    }, tempo);
   },
 };
 
