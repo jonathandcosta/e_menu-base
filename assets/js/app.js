@@ -6,6 +6,7 @@ $(document).ready(function () {
 var cardapio = {};
 
 var meu_Carrinho = [];
+var meu_Endereco = null;
 
 var valor_Carrinho = 0;
 var valor_Entrega = 5.0;
@@ -351,6 +352,60 @@ cardapio.metodos = {
       cardapio.metodos.mensagem('Por favor, informe o seu CEP.');
       $('#txtCEP').focus();
     }
+  },
+
+  // RESUMO DO PEDIDO - VALIDAÇÃO DOS CAMPOS
+  resumoPedido: () => {
+    let cep = $('#txtCEP').val().trim();
+    let endereco = $('#txtEndereco').val().trim();
+    let bairro = $('#txtBairro').val().trim();
+    let cidade = $('#txtCidade').val().trim();
+    let uf = $('#ddlUf').val().trim();
+    let numero = $('#txtNumero').val().trim();
+    let complemento = $('#txtComplemento').val().trim();
+
+    if (cep.length <= 0) {
+      cardapio.metodos.mensagem('Informe o CEP por favor.');
+      $('#txtCEP').focus();
+      return;
+    }
+    if (endereco.length <= 0) {
+      cardapio.metodos.mensagem('Informe o endereço por favor.');
+      $('#txtEndereco').focus();
+      return;
+    }
+    if (bairro.length <= 0) {
+      cardapio.metodos.mensagem('Informe o bairro por favor.');
+      $('#txtBairro').focus();
+      return;
+    }
+    if (cidade.length <= 0) {
+      cardapio.metodos.mensagem('Informe a cidade por favor.');
+      $('#txtCidade').focus();
+      return;
+    }
+    if (uf == '-1') {
+      cardapio.metodos.mensagem('Informe a UF por favor.');
+      $('#ddlUf').focus();
+      return;
+    }
+    if (numero.length <= 0) {
+      cardapio.metodos.mensagem('Informe o número por favor.');
+      $('#txtNumero').focus();
+      return;
+    }
+
+    meu_Endereco = {
+      cep: cep,
+      endereco: endereco,
+      bairro: bairro,
+      cidade: cidade,
+      uf: uf,
+      numero: numero,
+      complemento: complemento,
+    };
+
+    cardapio.metodos.carregaEtapas(3);
   },
 
   // MENSAGEM APRESENTADA NO FRONT APÓS ADICIONAR OU REMOVER OU NÃO TER ITEM AO CARRINHO
