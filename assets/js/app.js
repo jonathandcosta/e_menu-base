@@ -353,7 +353,7 @@ cardapio.metodos = {
     }
   },
 
-  // MENSAGEM APRESENTADA NO FRONT APÓS ADICIONAR O ITEM AO CARRINHO
+  // MENSAGEM APRESENTADA NO FRONT APÓS ADICIONAR OU REMOVER OU NÃO TER ITEM AO CARRINHO
   mensagem: (texto, cor = 'red', tempo = 3500) => {
     // APAGANDO A MENSAGEM DE SUCESSO APÓS 3,5 SEG
     let id = Math.floor(Date.now() * Math.random()).toString();
