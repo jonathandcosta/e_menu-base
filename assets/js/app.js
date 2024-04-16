@@ -11,6 +11,8 @@ var meu_Endereco = null;
 var valor_Carrinho = 0;
 var valor_Entrega = 5.0;
 
+var celular_Empresa = '5584999043539';
+
 cardapio.eventos = {
   init: () => {
     //INICIALIZAÇÃO
@@ -429,6 +431,41 @@ cardapio.metodos = {
     $('#cidadeEndereco').html(
       `${meu_Endereco.cidade} - ${meu_Endereco.uf}, ${meu_Endereco.cep} <br/> ${meu_Endereco.complemento}`,
     );
+
+    cardapio.metodos.finalizarPedido();
+  },
+
+  // ATUALIZA O BOTÃO FINALIZAR PEDIDO COM O LINK DO WHATSAPP
+  finalizarPedido: () => {
+    if (meu_Carrinho.length > 0 && meu_Endereco != null) {
+      var texto = 'Olá! Gostaria de fazer um pedido:';
+      texto += `\n*Itens do pedido:*\n\n\${itens}`;
+      texto += `\n*Endereço de entrega:*`;
+      texto += `\n${meu_Endereco.endereco}, ${meu_Endereco.numero} <br/> ${meu_Endereco.bairro}`;
+      texto += `\n${meu_Endereco.cidade} - ${meu_Endereco.uf}, ${meu_Endereco.cep} <br/> ${meu_Endereco.complemento}`;
+      texto += `\n\n*Total (com entrega): R$ ${(valor_Carrinho + valor_Entrega)
+        .toFixed(2)
+        .replace('.', ',')}*`;
+
+      var itens = '';
+
+      $.each(meu_Carrinho, (i, e) => {
+        itens += `* ${e.qntd}x* ${e.name} ....... R$ ${e.price
+          .toFixed(2)
+          .replace('.', ',')} \n`;
+
+        // último item
+        if (i + 1 == meu_Carrinho.length) {
+          texto = texto.replace(/\${itens}/g, itens);
+
+          //  CONVERTE A URL COMPATIVEL COM O NAVEGADOR
+          let encode = encodeURI(texto);
+          let URL = `https://wa.me/${celular_Empresa}?text=${encode}`;
+
+          $('#btnEtapaResumo').attr('href', URL);
+        }
+      });
+    }
   },
 
   // MENSAGEM APRESENTADA NO FRONT APÓS ADICIONAR OU REMOVER OU NÃO TER ITEM AO CARRINHO
