@@ -304,6 +304,16 @@ cardapio.metodos = {
     });
   },
 
+  // CARREGA A ETAPA DE ENDEREÇO
+  carregarEndereco: () => {
+    if (meu_Carrinho.length <= 0) {
+      cardapio.metodos.mensagem('Seu carrinho está vazio.');
+      return;
+    }
+
+    cardapio.metodos.carregaEtapas(2);
+  },
+
   // MENSAGEM APRESENTADA NO FRONT APÓS ADICIONAR O ITEM AO CARRINHO
   mensagem: (texto, cor = 'red', tempo = 3500) => {
     // APAGANDO A MENSAGEM DE SUCESSO APÓS 3,5 SEG
