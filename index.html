@@ -76,10 +76,10 @@
             <h1><b>Escolha a sua comida <b class="destaque">favorita</b></b></h1>
             <p>Aproveite nosso cardápio! Escolha o que desejar receber em sua casa de forma rápida e segura.</p>
             <div>
-              <a href="#" class="btn btn-yellow mt-4 mr-3">
+              <a href="#cardapio" class="btn btn-yellow mt-4 mr-3">
                 Ver cardápio
               </a>
-              <a href="#" class="btn btn-white btn-icon-left mt-4">
+              <a href="#" class="btn btn-white btn-icon-left mt-4" id="btnLigar">
                 <span class="icon-left">
                   <i class="fa fa-phone"></i>
                 </span>
@@ -289,9 +289,9 @@
               </p>
             </div>
           </div>
-          <a href="#" class="btn btn-sm btn-white btn-social mr-3 active">1</a>
-          <a href="#" class="btn btn-sm btn-white btn-social mr-3">2</a>
-          <a href="#" class="btn btn-sm btn-white btn-social mr-3">3</a>
+          <a class="btn btn-sm btn-white btn-social mr-3 active" id="btnDepoimento-1" onclick="cardapio.metodos.abrirDepoimento(1)">1</a>
+          <a class="btn btn-sm btn-white btn-social mr-3" id="btnDepoimento-2" onclick="cardapio.metodos.abrirDepoimento(2)">2</a>
+          <a class="btn btn-sm btn-white btn-social mr-3" id="btnDepoimento-3" onclick="cardapio.metodos.abrirDepoimento(3)">3</a>
         </div>
       </div>
     </div>
@@ -309,7 +309,7 @@
                 <h1 class="title"><b>Quer reservar um horário?</b></h1>
                 <p class="pr-5">
                   Mande uma mensagem clicando no botão abaixo <br> Reserve sua data e horário de forma simples e rápido</p>
-                <a href="#" class="btn btn-yellow mt-4"> Fazer reserva</a>
+                <a href="#" target="_blank" class="btn btn-yellow mt-4" id="btnReserva">Fazer reserva</a>
               </div>
               <div class="col-5">
                 <div class="card-reserva"></div>

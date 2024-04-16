@@ -17,6 +17,8 @@ cardapio.eventos = {
   init: () => {
     //INICIALIZAÇÃO
     cardapio.metodos.obterItensCardapio(); // CHAMA A FUNÇÃO METODO PARA CARREGAR OS ITENS
+    cardapio.metodos.carregaBotaoLigar();
+    cardapio.metodos.carregaBotaoReserva(); // CHAMA A FUNÇÃO METODO PARA CARREGAR O BOTÃO RESERVA
   },
 };
 
@@ -441,8 +443,8 @@ cardapio.metodos = {
       var texto = 'Olá! Gostaria de fazer um pedido:';
       texto += `\n*Itens do pedido:*\n\n\${itens}`;
       texto += `\n*Endereço de entrega:*`;
-      texto += `\n${meu_Endereco.endereco}, ${meu_Endereco.numero} <br/> ${meu_Endereco.bairro}`;
-      texto += `\n${meu_Endereco.cidade} - ${meu_Endereco.uf}, ${meu_Endereco.cep} <br/> ${meu_Endereco.complemento}`;
+      texto += `\n${meu_Endereco.endereco}, ${meu_Endereco.numero} \n ${meu_Endereco.bairro}`;
+      texto += `\n${meu_Endereco.cidade} - ${meu_Endereco.uf}, ${meu_Endereco.cep} \n ${meu_Endereco.complemento}`;
       texto += `\n\n*Total (com entrega): R$ ${(valor_Carrinho + valor_Entrega)
         .toFixed(2)
         .replace('.', ',')}*`;
@@ -466,6 +468,35 @@ cardapio.metodos = {
         }
       });
     }
+  },
+
+  // CARREGA O LINK DO BOTÃO RESERVA
+  carregaBotaoReserva: () => {
+    var texto = 'Olá! Gostaria de fazer uma *reserva*';
+
+    let encode = encodeURI(texto);
+    let URL = `https://wa.me/${celular_Empresa}?text=${encode}`;
+
+    $('#btnReserva').attr('href', URL);
+  },
+
+  // CARREGA BOTÃO LIGAR
+  carregaBotaoLigar: () => {
+    $('#btnLigar').attr('href', `tel:${celular_Empresa}`);
+  },
+
+  // ABRIR DEPOIMENTO
+  abrirDepoimento: (depoimento) => {
+    $('#depoimento-1').addClass('hidden');
+    $('#depoimento-2').addClass('hidden');
+    $('#depoimento-3').addClass('hidden');
+
+    $('#btnDepoimento-1').removeClass('active');
+    $('#btnDepoimento-2').removeClass('active');
+    $('#btnDepoimento-3').removeClass('active');
+
+    $('#depoimento-' + depoimento).removeClass('hidden');
+    $('#btnDepoimento-' + depoimento).addClass('active');
   },
 
   // MENSAGEM APRESENTADA NO FRONT APÓS ADICIONAR OU REMOVER OU NÃO TER ITEM AO CARRINHO
