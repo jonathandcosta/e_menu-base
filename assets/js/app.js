@@ -7,6 +7,9 @@ var cardapio = {};
 
 var meu_Carrinho = [];
 
+var valor_Carrinho = 0;
+var valor_Entrega = 5.0;
+
 cardapio.eventos = {
   init: () => {
     //INICIALIZAÇÃO
@@ -222,11 +225,17 @@ cardapio.metodos = {
           .replace(/\${qntd}/g, e.qntd);
 
         $('#itensCarrinho').append(temp);
+
+        //ULTIMO ITEM
+        if (i + 1 == meu_Carrinho.length) {
+          cardapio.metodos.carregarValores();
+        }
       });
     } else {
       $('#itensCarrinho').html(
         '<p class="carrinho-vazio"><i class="fa fa-shopping-bag"></i> Seu carrinho esta vazio</p>',
       );
+      cardapio.metodos.carregarValores();
     }
   },
 
@@ -266,6 +275,33 @@ cardapio.metodos = {
     meu_Carrinho[objIndex].qntd = qntd;
 
     cardapio.metodos.atualizaBadgeTotal(); //ATUALIZA O BOTÃO FLUTUANTE  DO CARRINHO COM A QUANTIDADE ATUALIZADA
+
+    cardapio.metodos.carregarValores();
+  },
+
+  //CARREGA O SUBTOTAL, ENTREGA E TOTAL NO FOOTER DO CARRINHO
+  carregarValores: () => {
+    valor_Carrinho = 0;
+
+    $('#iblSubTotal').text('R$ 0,00');
+    $('#iblValorEntrega').text('+ R$ 0,00');
+    $('#iblValorTotal').text('R$ 0,00');
+
+    $.each(meu_Carrinho, (i, e) => {
+      valor_Carrinho += parseFloat(e.price * e.qntd);
+
+      if (i + 1 == meu_Carrinho.length) {
+        $('#iblSubTotal').text(
+          `R$ ${valor_Carrinho.toFixed(2).replace('.', ',')}`,
+        );
+        $('#iblValorEntrega').text(
+          `+ R$ ${valor_Entrega.toFixed(2).replace('.', ',')}`,
+        );
+        $('#iblValorTotal').text(
+          `R$ ${(valor_Carrinho + valor_Entrega).toFixed(2).replace('.', ',')}`,
+        );
+      }
+    });
   },
 
   // MENSAGEM APRESENTADA NO FRONT APÓS ADICIONAR O ITEM AO CARRINHO
