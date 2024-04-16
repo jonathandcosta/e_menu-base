@@ -314,6 +314,45 @@ cardapio.metodos = {
     cardapio.metodos.carregaEtapas(2);
   },
 
+  //  API VIACEP
+  buscaCep: () => {
+    // CRIA A VARIAVEL COM O VALOR DO CEP
+    var cep = $('#txtCEP').val().trim().replace(/\D/g, ''); // VALIDA OS DADOS E LIMPA, DEIXANDO SEM (. , -)
+
+    // VERIFICA SE O CEP FOI INFORMADO PELO USUÁRIO
+    if (cep != '') {
+      //EXPRESSÃO REGULAR PARA VALIDAR O CEP
+      var validaCep = /^[0-9]{8}$/;
+
+      if (validaCep.test(cep)) {
+        $.getJSON(
+          'https://viacep.com.br/ws/' + cep + '/json/?callback=?',
+          function (dados) {
+            if (!('erro' in dados)) {
+              // ATUALIZA OS CAMPOS COM OS VALORES RETORNADOS DA API
+              $('#txtEndereco').val(dados.logradouro);
+              $('#txtBairro').val(dados.bairro);
+              $('#txtNumero').focus();
+              $('#txtCidade').val(dados.localidade);
+              $('#ddlUf').val(dados.uf);
+            } else {
+              cardapio.metodos.mensagem(
+                'CEP não encontrado, Presencha as informações manualmente.',
+              );
+              $('#txtCEP').focus();
+            }
+          },
+        );
+      } else {
+        cardapio.metodos.mensagem('Formato do CEP inválido.');
+        $('#txtCEP').focus();
+      }
+    } else {
+      cardapio.metodos.mensagem('Por favor, informe o seu CEP.');
+      $('#txtCEP').focus();
+    }
+  },
+
   // MENSAGEM APRESENTADA NO FRONT APÓS ADICIONAR O ITEM AO CARRINHO
   mensagem: (texto, cor = 'red', tempo = 3500) => {
     // APAGANDO A MENSAGEM DE SUCESSO APÓS 3,5 SEG
