@@ -25,12 +25,16 @@
         padding-right: 35px!important;
     }
 
+    .navbar-toggler{
+        background-color: #fff;
+    }
+
     .navbar-toggler-icon {
         padding-top: 5px;
     }
-
+    
     .navbar-collapse {
-        background-color: var(--color-secondary);
+        background-color: var(--color-separate);
         padding: 20px;
         text-align: center;
         border-radius: 40px;
