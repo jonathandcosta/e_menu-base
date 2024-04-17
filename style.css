@@ -9,10 +9,10 @@
 }
 
 :root {
-  --color-background: #fffdf7;
+  --color-background: #000;
   --color-black: #212121;
   --color-black-all: #000;
-  --color-text: #4f4f4f;
+  --color-text: #c7c7c7;
   --color-text-out: #90908e;
   --color-primary: #ffbf00;
   --color-secondary: #fff2cc;
@@ -43,7 +43,7 @@ b {
 }
 
 .nav-link {
-  color: var(--color-black)!important;
+  color: var(--color-white)!important;
   padding-left: 35px!important;
   padding-right: 35px!important;
 }
@@ -172,7 +172,7 @@ b {
 }
 
 .text-banner h1 {
-  color: var(--color-black);
+  color: var(--color-white);
   font-size: 60px;
 }
 
@@ -188,7 +188,7 @@ b {
 
 .btn-yellow {
   background-color: var(--color-primary);
-  color: var(--color-white)!important;
+  color: var(--color-black)!important;
   border-radius: 20px;
   padding: 15px 25px;
   font-size: 20px;
@@ -256,6 +256,7 @@ b {
   position: absolute;
   right: 0;
   bottom: -75px;
+  color: var(--color-black);
 }
 
 .card-case-name {
@@ -281,14 +282,14 @@ b {
 }
 
 .hint-title {
-  color: var(--color-primary);
+  color: var(--color-white);
   font-size: 16px;
   text-transform: uppercase;
   letter-spacing: 5px;
 }
 
 .title {
-  color: var(--color-black);
+  color: var(--color-separate);
   font-size: 40px;
   margin-top: 5px;
   margin-bottom: 30px;
@@ -304,14 +305,14 @@ b {
 }
 
 .card-text {
-  color: var(--color-text-out);
+  color: var(--color-text);
   font-size: 15px;
   padding: 0px 30px;
 }
 
 .card-text p {
   font-size: 22px;
-  color: var(--color-black);
+  color: var(--color-white);
   margin-bottom: 10px;
 }
 
@@ -473,7 +474,7 @@ b {
 }
 
 .nome-depoimento {
-  color: var(--color-black);
+  color: var(--color-white);
   font-size: 22px;
   margin-bottom: 5px;
 }
@@ -483,13 +484,13 @@ b {
 }
 
 .nota-depoimento span {
-  color: var(--color-black);
+  color: var(--color-white);
 }
 
 .texto-depoimento {
   display: flex;
   font-size: 16px;
-  color: var(--color-black);
+  color: var(--color-text);
 }
 
 .texto-depoimento i {
