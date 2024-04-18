@@ -542,6 +542,10 @@ b {
   background-color: var(--color-secondary);
 }
 
+.titulo {
+  color: var(--color-background);
+}
+
 .container-logo-footer, .container-texto-footer, .container-redes-footer {
   display: flex;
   align-items: center;
